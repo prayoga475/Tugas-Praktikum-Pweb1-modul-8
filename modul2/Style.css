@@ -1,0 +1,17 @@
+.header {
+   font-size:larger;
+}
+.id_pesan{
+width: 350px;
+}
+
+.sve{
+    background-color: blue;
+    color: white;
+    border: 0;
+}
+
+.cancel{
+    background-color: rgb(250, 206, 12);
+    border: 0;
+}

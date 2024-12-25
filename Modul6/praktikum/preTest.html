@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Test</title>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".fadeout").click(function(){
+                $("img").fadeOut();
+            });
+
+            $(".fadein").click(function(){
+                $("img").fadeIn();
+            });
+
+            $(".fadetoggle").click(function(){
+                $("img").fadeToggle();
+                $("img").css("background-color", "orange");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button class="fadeout" style="background-color: #add8e6;">Sembunyi</button>
+    <button class="fadein" style="background-color: #00bfff;">Tampil</button>
+    <button class="fadetoggle" style="background-color: #ffa500;">Fade Toggle</button>
+    <br>
+    <img src="../th.jpg" alt="logo Ti">
+</body>
+</html>

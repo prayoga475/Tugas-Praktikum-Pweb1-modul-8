@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas</title>
+    <link rel="stylesheet" href="/day2/Style.css">
+</head>
+<body>
+    <form method="get">
+        <table bgcolor="#e9eef3" class="tabel">
+            <tr>
+                <td class="header"><b>From Pemesanan</b></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputText">Id Pemesanan :</label>
+                </td>
+                <td>
+                    <input type="number" name="id_Pemesanan" id="Pemesanan" class="id_pesan">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Nama Pemesan :</label></td>
+                <td>
+                    <input type="text" name="nama_pemesan" maxlength="20" size="46">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Nomor Identitas :</label></td>
+                <td>
+                    <input type="number" name="n_identitas" id="n_identitas" class="id_pesan">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputText">Type kamar :</label>
+                </td>
+                <td>
+                    <select name="type kamar">
+                        <option value="-">--Pilih--</option>
+                        <option value="std">standar</option>
+                        <option value="dlx">Deluxe</option>
+                        <option value="fmly">Family</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Harga :</label></td>
+                <td>
+                    <input type="number" name="harga" id="harga" class="id_pesan">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Tanggal Pesan :</label></td>
+                <td>
+                    <input type="date" name="tgl_pesan" id="tgl_pesan" class="id_pesan">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Durasi Menginap :</label></td>
+                <td>
+                    <input type="number" name="durasi" id="durasi" maxlength="1" class="drs"> hari
+                </td>
+            </tr>
+                <td><label for="inputText">Termasuk Breakfast :</label></td>
+                <td>
+                    <input type="checkbox" name="breakfast" id="breakfast"> Ya
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Total Bayar :</label></td>
+                <td>
+                    <input type="number" name="tbayar" id="tbayar" class="id_pesan">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><center>
+                    <button name="save" value="simpan" class="sve">Simpan</button>
+                    <button type="reset" name="cancel" value="batal" class="cancel">Batal</button></center>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

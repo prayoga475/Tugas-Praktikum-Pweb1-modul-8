@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 3</title>
+    <link rel="stylesheet" href="/day2/Style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get values from the form
+                const nama = $('#Nama').val();
+                const noIdentitas = $('#no_identitas').val();
+                const kamar = $('#kamar').val();
+                const durasi = parseInt($('input[name="durasi"]').val());
+                const harga = parseFloat($('#harga').val());
+                const breakfastChecked = $('#breaktast').is(':checked');
+
+                // Validate inputs
+                if (!nama || !noIdentitas || !kamar || isNaN(durasi) || isNaN(harga)) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                // Calculate total price
+                let total = harga * durasi;
+
+                // Apply discount for stays longer than 3 days
+                if (durasi > 3) {
+                    total *= 0.9; // 10% discount
+                }
+
+                // Add breakfast cost if selected
+                if (breakfastChecked) {
+                    total += 80000; // Additional cost for breakfast
+                }
+
+                // Display summary
+                const summary = `
+                    <h2>Resume Pemesanan</h2>
+                    <p>Nama Pemesan: ${nama}</p>
+                    <p>Nomor Identitas: ${noIdentitas}</p>
+                    <p>Tipe Kamar: ${kamar}</p>
+                    <p>Durasi Menginap: ${durasi} Hari</p>
+                    <p>Total Bayar: Rp ${total.toFixed(2)}</p>
+                `;
+                
+                $('#summary').html(summary);
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <table bgcolor="#e9eef3" class="tabel">
+            <tr>
+                <td class="header"><b>From Pemesanan</b></td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Id Pemesanan :</label></td>
+                <td><input type="number" name="Id_pesan" id="Id_pesan" class="id_pesan"></td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Nama Pemesan :</label></td>
+                <td><input type="text" name="Nama" id="Nama" class="id_pesan"></td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Nomor Identitas :</label></td>
+                <td><input type="number" name="no_identitas" id="no_identitas" class="id_pesan"></td>
+            </tr>
+            <tr>
+                <td><label>Tipe Kamar</label></td>
+                <td>
+                    <select name="kamar" id="kamar">
+                        <option value="">--Pilih--</option>
+                        <option value="std">Standar</option>
+                        <option value="dlx">Deluxe</option>
+                        <option value="FMY">Family</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Harga</label></td>
+                <td><input type="text" name="harga" id="harga" class="id_pesan"></td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Tanggal Pesan :</label></td>
+                <td><input type="date" name="buka"></td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Durasi Menginap :</label></td>
+                <td><input type="number" name="durasi"> Hari</td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Termasuk breakfast :</label></td>
+                <td><input type="checkbox" id="breaktast" name="breaktast" value="breaktast"/>Ya</td>
+            </tr>
+
+            <!-- Removed Total Bayar input as it's calculated dynamically -->
+
+            <tr>
+                <td colspan="2"><center><button type="submit" class="sve">Simpan</button></center></td>
+            </tr>
+
+        </table>
+
+        <!-- Summary Section -->
+        <div id="summary"></div>
+
+    </form>
+
+</body>
+</html>
+
